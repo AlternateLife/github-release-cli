@@ -19,16 +19,17 @@ Usage: github-release <command> [<args>]
 
 Options:
 
-  -h, --help           output usage information
-  -V, --version        output the version number
-  -T, --token <token>  OAuth2 token
-  -o, --owner <owner>  owner
-  -r, --repo <repo>    repo
-  -t, --tag <tag>      tag
-  -n, --name <name>    name
-  -b, --body <body>    body
-  -d, --draft          draft
-  -p, --prerelease     prerelease
+  -h,  --help            output usage information
+  -V,  --version         output the version number
+  -T,  --token <token>   OAuth2 token
+  -o,  --owner <owner>   owner
+  -r,  --repo <repo>     repo
+  -t,  --tag <tag>       tag
+  -ta, --target <target> target_commitish
+  -n,  --name <name>     name
+  -b,  --body <body>     body
+  -d,  --draft           draft
+  -p,  --prerelease      prerelease
 ```
 
 ### Upload

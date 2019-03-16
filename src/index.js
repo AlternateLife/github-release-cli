@@ -17,6 +17,7 @@ program
     .option('-o, --owner <owner>', 'owner')
     .option('-r, --repo <repo>', 'repo')
     .option('-t, --tag <tag>', 'tag')
+    .option('-ta, --target <target>', 'target_commitish')
     .option('-n, --name <name>', 'name')
     .option('-b, --body <body>', 'body', false)
     .option('-d, --draft [value]', 'draft', function(val) {
@@ -66,7 +67,7 @@ function next(response) {
 
 const fn = {
     'upload': async () => {
-        const { owner, repo, tag, name, body, draft, prerelease } = program;
+        const { owner, repo, tag, target, name, body, draft, prerelease } = program;
         const files = args;
         let release;
 
@@ -89,6 +90,7 @@ const fn = {
                     owner,
                     repo,
                     tag_name: tag,
+                    target_commitish: target,
                     name: name || tag,
                     body: body || '',
                     draft: !!draft,
@@ -102,6 +104,7 @@ const fn = {
                     repo,
                     release_id: release.id,
                     tag_name: tag,
+                    target_commitish: (target === undefined) ? release.target_commitish : undefined,
                     name: name || tag,
                     body: (body === undefined) ? release.body || '' : body || '',
                     draft: (draft === undefined) ? !!release.draft : false,
